@@ -1,0 +1,60 @@
+##############################
+# SimpleChairs - Configuration
+##############################
+
+prefix: "&7[&6Chairs&7] &r"
+
+# --- Stand up behaviour ---
+stand-when-damaged: false
+sneak-to-stand: true
+return-on-stand: false
+stand-when-block-breaks: true
+
+# --- Sitting on blocks ---
+allow-unsafe-sit: false
+one-block-per-chair: true
+sit-center-on-block: true
+sit-bottom-part-only: true
+sit-empty-hand-only: true
+sit-max-distance: 0
+sit-max-block-height: 2
+
+# --- Optional features (disable = feature and its command are off) ---
+features:
+  crawl-enabled: true
+
+# --- Crawl (when crawl-enabled is true) ---
+crawl-sneak-to-stand: true
+crawl-double-sneak: false
+
+# --- World / safety ---
+worldguard-integration: false
+world-filter-enabled: false
+worlds:
+  - "world"
+material-blacklist:
+  - "LAVA"
+  - "FIRE"
+
+# --- Messages ---
+persist-sit-hint: false
+persist-crawl-hint: false
+
+sit-blocks:
+  - "stairs"
+  - "slabs"
+  - "#carpets"
+
+plugin-messages:
+  no-permission: "&cYou do not have permission"
+  world-not-allowed: "&cYou cannot use this in this world"
+  player-only: "&cThis command can only be executed by a player"
+  reload-success: "&aConfiguration reloaded successfully"
+  reload-no-permission: "&cYou do not have permission to reload the configuration"
+  usage: "&7Usage: &f/<command> [reload]"
+  feature-disabled: "&cThis feature is disabled"
+
+player-messages:
+  sit-hint: "&6Sneak&f to get up"
+  already-sitting: "&cYou're already sitting"
+  chair-occupied: "&cSomeone is already sitting here"

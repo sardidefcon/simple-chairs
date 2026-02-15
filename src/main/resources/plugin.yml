@@ -1,0 +1,34 @@
+name: SimpleChairs
+main: com.simpleplugins.SimpleChairs.SimpleChairs
+version: 1.0.0
+api-version: "1.21"
+description: "Simple Paper plugin to sit on stairs (and optionally slabs) by right-clicking."
+author: "sardidefcon"
+softdepend: [WorldGuard]
+loadbefore: [WorldGuard]
+
+commands:
+  simplechairs:
+    description: SimpleChairs plugin commands
+    usage: /<command> [reload]
+    aliases: [chairs]
+  sit:
+    description: Sit on the ground
+    usage: /<command>
+  crawl:
+    description: Crawl on the ground
+    usage: /<command>
+
+permissions:
+  schairs.sit:
+    description: Allows sitting on blocks (stairs, slabs, etc.) by right-clicking
+    default: true
+  schairs.sit.command:
+    description: Allows using /sit to sit on the ground
+    default: op
+  schairs.crawl:
+    description: Allows using /crawl to crawl on the ground
+    default: op
+  schairs.reload:
+    description: Allows reloading the plugin configuration
+    default: op
