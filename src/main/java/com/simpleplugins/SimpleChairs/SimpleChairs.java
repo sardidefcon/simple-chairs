@@ -25,6 +25,7 @@ public class SimpleChairs extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        ConfigUpdater.mergeWithDefaults(this);
         this.configManager = new ConfigManager(this);
         this.chairStandKey = new NamespacedKey(this, "simplechairs");
 
@@ -134,7 +135,13 @@ public class SimpleChairs extends JavaPlugin {
                         }));
     }
 
+    /**
+     * Merges defaults with existing config (adding only missing keys), reloads
+     * from disk, and refreshes config-dependent state. Existing user values are
+     * never overwritten. On failure, config and state are left unchanged.
+     */
     public void reloadPluginConfig() {
+        ConfigUpdater.mergeWithDefaults(this);
         reloadConfig();
         configManager.reload();
         stopCrawlTickTask();
