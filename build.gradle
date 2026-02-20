@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'com.simpleplugins'
@@ -15,6 +16,9 @@ repositories {
 
 dependencies {
     compileOnly 'io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT'
+
+    // bStats metrics for Bukkit/Paper
+    implementation 'org.bstats:bstats-bukkit:3.0.2'
 }
 
 java {
@@ -27,6 +31,16 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-tasks.withType(Jar).configureEach {
+tasks.named('jar') {
+    enabled = false
+}
+
+tasks.named('shadowJar') {
     archiveBaseName = 'SimpleChairs'
+    archiveClassifier = ''
+    relocate 'org.bstats', 'com.simpleplugins.SimpleChairs.bstats'
+}
+
+tasks.named('build') {
+    dependsOn tasks.shadowJar
 }

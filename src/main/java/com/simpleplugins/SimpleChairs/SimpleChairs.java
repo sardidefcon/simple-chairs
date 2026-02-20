@@ -2,6 +2,7 @@ package com.simpleplugins.SimpleChairs;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.ArmorStand;
@@ -28,6 +29,10 @@ public class SimpleChairs extends JavaPlugin {
         ConfigUpdater.mergeWithDefaults(this);
         this.configManager = new ConfigManager(this);
         this.chairStandKey = new NamespacedKey(this, "simplechairs");
+
+        // bStats metrics
+        int pluginId = 29642;
+        new Metrics(this, pluginId);
 
         cleanupGhostChairStands();
 
