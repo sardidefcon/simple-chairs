@@ -30,7 +30,6 @@ public class SimpleChairs extends JavaPlugin {
         this.configManager = new ConfigManager(this);
         this.chairStandKey = new NamespacedKey(this, "simplechairs");
 
-        // bStats metrics
         int pluginId = 29642;
         new Metrics(this, pluginId);
 
